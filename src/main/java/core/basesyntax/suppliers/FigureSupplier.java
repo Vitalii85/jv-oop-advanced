@@ -13,7 +13,6 @@ public class FigureSupplier {
     private static final int FIGURE_COUNT = 5;
     private static final int DEFAULT_RADIUS = 10;
     private static final Color DEFAULT_COLOR = Color.WHITE;
-    private static final int MIN_SIZE = 1;
     private static final int MAX_SIZE = 20;
     private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
@@ -38,6 +37,6 @@ public class FigureSupplier {
     }
 
     private int getRandomSize() {
-        return MIN_SIZE + random.nextInt(MAX_SIZE);
+        return random.nextInt(MAX_SIZE);
     }
 }
