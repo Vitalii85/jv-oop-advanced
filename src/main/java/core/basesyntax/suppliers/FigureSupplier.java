@@ -12,14 +12,13 @@ import java.util.Random;
 public class FigureSupplier {
     private static final int FIGURE_COUNT = 5;
     private static final int DEFAULT_RADIUS = 10;
-    private static final Color DEFAULT_COLOR = Color.WHITE;
+    private static final int MIN_SIZE = 1;
     private static final int MAX_SIZE = 20;
     private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
 
     public Figure getRandomFigure() {
-        int figureNumber = random.nextInt(FIGURE_COUNT);
-        return switch (figureNumber) {
+        return switch (random.nextInt(FIGURE_COUNT)) {
             case 0 -> new Circle(colorSupplier.getRandomColor(), getRandomSize());
             case 1 -> new Square(colorSupplier.getRandomColor(), getRandomSize());
             case 2 -> new Rectangle(colorSupplier.getRandomColor(), getRandomSize(),
@@ -33,10 +32,10 @@ public class FigureSupplier {
     }
 
     public Figure getDefaultFigure() {
-        return new Circle(DEFAULT_COLOR.name(), DEFAULT_RADIUS);
+        return new Circle(Color.WHITE.name(), DEFAULT_RADIUS);
     }
 
     private int getRandomSize() {
-        return random.nextInt(MAX_SIZE);
+        return MIN_SIZE + random.nextInt(MAX_SIZE - MIN_SIZE + 1);
     }
 }

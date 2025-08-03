@@ -1,13 +1,12 @@
 package core.basesyntax.figures;
 
 public class IsoscelesTrapezoid extends Figure {
-    private final String color;
     private final int top;
     private final int base;
     private final int height;
 
     public IsoscelesTrapezoid(String color, int top, int base, int height) {
-        this.color = color;
+        super(color);
         this.top = top;
         this.base = base;
         this.height = height;
@@ -22,6 +21,6 @@ public class IsoscelesTrapezoid extends Figure {
     public void draw() {
         System.out.printf("Figure: isosceles trapezoid, area: %1$.2f sq.units, "
                         + "top: %2$d units, base: %3$d units, height: %4$d units, color: %5$s%n",
-                this.getArea(), top, base, height, color);
+                this.getArea(), top, base, height, this.getColor());
     }
 }

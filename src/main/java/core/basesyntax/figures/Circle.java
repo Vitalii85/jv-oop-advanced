@@ -1,11 +1,10 @@
 package core.basesyntax.figures;
 
 public class Circle extends Figure {
-    private final String color;
     private final int radius;
 
     public Circle(String color, int radius) {
-        this.color = color;
+        super(color);
         this.radius = radius;
     }
 
@@ -18,6 +17,6 @@ public class Circle extends Figure {
     public void draw() {
         System.out.printf("Figure: circle, area: %1$.2f sq.units, "
                         + "radius: %2$d units, color: %3$s%n",
-                this.getArea(), radius, color);
+                this.getArea(), radius, this.getColor());
     }
 }
